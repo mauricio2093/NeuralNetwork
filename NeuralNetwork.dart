@@ -1,3 +1,5 @@
+import 'dart:math';
+
 void main() {
   print('Hello world, this is Neural Network!');
 }
@@ -29,7 +31,20 @@ class Layer {
 }
 
 class Neuron {
+  List<double> weights;
+
+  double bias;
+
+  Neuron(this.weights, this.bias); //bias
+
   double forward(List<double> inputs) {
-    return 0.0;
+    assert(inputs.length == weights.length);
+    var result = 0.0;
+    for (var i = 0; i < inputs.length; i++) {
+      result += inputs[i] * weights[i];
+    }
+    result += bias;
+
+    return result;
   }
 }

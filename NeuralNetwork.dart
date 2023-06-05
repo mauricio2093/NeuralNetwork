@@ -45,6 +45,9 @@ class Neuron {
     }
     result += bias;
 
+    // Rectified Linear Unit
+    result = max(0, result);
+
     return result;
   }
 }
